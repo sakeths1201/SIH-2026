@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="theme-color" content="#05070d">
+<title>Momentum · Fitness that doesn't punish you</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* --- Utility classes (hand-written replacement for the Tailwind CDN build) --- */
+.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}
+.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.flex-1{flex:1 1 0%}
+.items-center{align-items:center}.items-start{align-items:flex-start}.items-end{align-items:flex-end}
+.justify-center{justify-content:center}.justify-between{justify-content:space-between}.justify-around{justify-content:space-around}
+.place-items-center{place-items:center}
+.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.gap-1{gap:.25rem}.gap-2{gap:.5rem}.gap-2\.5{gap:.625rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}
+.space-y-2>*+*{margin-top:.5rem}.space-y-3>*+*{margin-top:.75rem}.space-y-4>*+*{margin-top:1rem}
+.w-full{width:100%}.w-14{width:3.5rem}.h-14{height:3.5rem}.h-28{height:7rem}
+.max-w-lg{max-width:32rem}.max-w-sm{max-width:24rem}
+.mx-auto{margin-left:auto;margin-right:auto}
+.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}
+.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}
+.p-0{padding:0}.p-2{padding:.5rem}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}
+.px-3{padding-left:.75rem;padding-right:.75rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}
+.px-8{padding-left:2rem;padding-right:2rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}
+.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}
+.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}
+.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}
+.py-8{padding-top:2rem;padding-bottom:2rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}
+.pt-8{padding-top:2rem}.pb-1{padding-bottom:.25rem}.pb-8{padding-bottom:2rem}.pb-10{padding-bottom:2.5rem}
+.text-\[10px\]{font-size:10px}.text-xs{font-size:.75rem}.text-sm{font-size:.875rem}.text-base{font-size:1rem}
+.text-lg{font-size:1.125rem}.text-xl{font-size:1.25rem}.text-2xl{font-size:1.5rem}.text-3xl{font-size:1.875rem}.text-4xl{font-size:2.25rem}
+.font-normal{font-weight:400}.font-semibold{font-weight:600}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-black{font-weight:900}
+.leading-tight{line-height:1.25}.leading-relaxed{line-height:1.625}.leading-\[1\.08\]{line-height:1.08}
+.tracking-tight{letter-spacing:-.025em}.tracking-widest{letter-spacing:.1em}
+.uppercase{text-transform:uppercase}.line-through{text-decoration:line-through}
+.text-center{text-align:center}.text-left{text-align:left}.text-right{text-align:right}
+.border-0{border:0}.border-b{border-bottom:1px solid var(--line)}
+.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}
+.bg-transparent{background:transparent}.cursor-pointer{cursor:pointer}.overflow-x-auto{overflow-x:auto}
+@media(min-width:640px){.sm\:flex-row{flex-direction:row}.sm\:text-5xl{font-size:3rem}}
+</style>
+<style>
+:root{--bg:#12100e;--bg2:#1a1714;--card:#211d19;--card2:#2a2521;--text:#f7f2ec;--muted:#a89d8f;--line:#37302a;--accent:#ff6b45;--cyan:#3ecf8e;--orange:#ffb648;--pink:#ff5c8a;--purple:#9d8cf7;--shadow:0 12px 40px rgba(0,0,0,.45);--ring-track:#2e2822;--safe-b:env(safe-area-inset-bottom,0px);--safe-t:env(safe-area-inset-top,0px);--nav-h:68px;--glow:0 0 40px rgba(255,107,69,.28)}
+body.light{--bg:#faf6f0;--bg2:#f2ebe0;--card:#fffdfa;--card2:#f7f0e5;--text:#241f19;--muted:#7c7266;--line:#e9dfd0;--accent:#e6552e;--cyan:#0f9d68;--orange:#d97a17;--pink:#d43d72;--purple:#6f5bd0;--shadow:0 8px 28px rgba(36,31,25,.1);--ring-track:#ece3d4}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-overflow-scrolling:touch}html{scroll-behavior:smooth;height:100%;scroll-padding-top:var(--safe-t)}
+body{margin:0;font-family:'Inter',system-ui,-apple-system,"Segoe UI","Noto Sans",sans-serif;background:var(--bg);color:var(--text);min-height:100%;min-height:100dvh;overflow-x:hidden;overflow-y:auto;padding-top:var(--safe-t);padding-bottom:env(safe-area-inset-bottom,0px)}
+h1,h2,h3,.font-brand,.btn,.nav button,.logo-mark+span,.login-title,.chip{font-family:'Manrope',system-ui,sans-serif}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+.screen{display:none;min-height:100dvh}.screen.on{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+.btn{border:0;border-radius:14px;padding:14px 20px;font-weight:800;font-size:.95rem;min-height:50px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .12s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#0a0f08;box-shadow:var(--glow)}
+.btn-cyan{background:var(--cyan);color:#042f2e}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btn-soft{background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent)}
+.chip{border-radius:999px;padding:8px 14px;font-size:.82rem;font-weight:700;background:var(--card2);border:1px solid var(--line);cursor:pointer;min-height:40px;color:var(--text)}
+.chip.on{background:color-mix(in srgb,var(--accent) 18%,transparent);border-color:var(--accent);color:var(--accent)}
+.muted{color:var(--muted)}
+.nav{position:fixed;left:10px;right:10px;bottom:calc(8px + var(--safe-b));height:var(--nav-h);z-index:60;display:grid;grid-template-columns:repeat(5,1fr);gap:2px;padding:6px;border-radius:22px;background:color-mix(in srgb,var(--card) 94%,transparent);border:1px solid var(--line);backdrop-filter:blur(18px)}
+.nav button{border:0;background:transparent;color:var(--muted);border-radius:16px;font-size:.65rem;font-weight:750;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:52px}
+.nav button .ico{font-size:1.15rem}.nav button.active{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--text)}
+.fab{position:fixed;right:18px;bottom:calc(var(--nav-h) + 18px + var(--safe-b));width:56px;height:56px;border-radius:18px;border:0;background:linear-gradient(135deg,var(--accent),var(--cyan));color:#0a0f08;font-size:1.6rem;font-weight:800;box-shadow:var(--glow);z-index:55;display:grid;place-items:center}
+.ring{--p:0;width:140px;height:140px;border-radius:50%;background:conic-gradient(var(--accent) calc(var(--p)*1%),var(--ring-track) 0);display:grid;place-items:center;position:relative}
+.ring::before{content:"";position:absolute;inset:11px;border-radius:50%;background:var(--card)}
+.ring-inner{position:relative;z-index:1;text-align:center}
+.progress-bar{height:10px;border-radius:999px;background:var(--ring-track);overflow:hidden}
+.progress-bar>div{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--cyan));transition:width .45s}
+.bottle{width:64px;height:108px;border:3px solid var(--line);border-radius:14px 14px 18px 18px;position:relative;overflow:hidden;background:var(--bg2)}
+.bottle-fill{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(180deg,#67e8f9,#22d3ee);transition:height .4s}
+.modal-bg{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.65);backdrop-filter:blur(8px);display:flex;align-items:flex-end;justify-content:center;padding:12px}
+@media(min-width:640px){.modal-bg{align-items:center}}
+.modal{background:var(--card);border-radius:24px;width:100%;max-width:440px;max-height:88vh;overflow:auto;border:1px solid var(--line);padding:22px}
+.input{width:100%;border:1px solid var(--line);background:var(--bg2);color:var(--text);border-radius:14px;padding:12px 14px;font-size:1rem;min-height:48px}
+.toggle{display:inline-block;width:52px;height:30px;border-radius:999px;background:var(--line);border:0;position:relative;padding:0;cursor:pointer;vertical-align:middle}
+.toggle::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.25);transition:.2s}
+.toggle.on{background:var(--accent)}.toggle.on::after{left:25px}
+.xp-bar{height:8px;border-radius:999px;background:var(--ring-track);overflow:hidden}
+.xp-bar>div{height:100%;background:linear-gradient(90deg,var(--purple),var(--accent));transition:width .4s}
+.workout-mode{position:fixed;inset:0;z-index:70;background:var(--bg);display:flex;flex-direction:column;padding:16px 16px calc(24px + var(--safe-b))}
+.timer-big{font-variant-numeric:tabular-nums;font-size:clamp(3rem,14vw,4.5rem);font-weight:900;color:var(--accent)}
+.ex-card{border:1px solid var(--line);border-radius:18px;padding:14px;background:var(--card);display:flex;gap:12px;align-items:flex-start;cursor:pointer;transition:transform .12s}
+.ex-card:active{transform:scale(.98)}
+.ex-icon{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:1.35rem;background:color-mix(in srgb,var(--accent) 12%,transparent);flex-shrink:0}
+.badge{width:100%;aspect-ratio:1;border-radius:16px;display:grid;place-items:center;font-size:1.45rem;background:var(--card2);border:1px solid var(--line);cursor:pointer;padding:0;font:inherit;transition:transform .12s;filter:grayscale(.8) opacity(.55)}
+.badge:active{transform:scale(.93)}
+.badge.unlocked{background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 30%,transparent),color-mix(in srgb,var(--cyan) 20%,transparent));border-color:var(--accent);filter:none;box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 40%,transparent)}
+.heatmap{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.heat{aspect-ratio:1;border-radius:6px;background:var(--ring-track)}
+.heat.l1{background:color-mix(in srgb,var(--accent) 35%,transparent)}.heat.l2{background:color-mix(in srgb,var(--accent) 60%,transparent)}.heat.l3{background:var(--accent)}
+.offline-pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:.7rem;font-weight:700;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 25%,transparent)}
+.section-pad{padding:16px 16px calc(var(--nav-h) + 80px + var(--safe-b))}
+.header-bar{position:sticky;top:var(--safe-t);z-index:40;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:12px 16px}
+.hero-bar{position:relative;overflow:hidden;background:linear-gradient(160deg,color-mix(in srgb,var(--accent) 24%,var(--bg)) 0%,color-mix(in srgb,var(--cyan) 12%,var(--bg)) 55%,var(--bg) 100%);border-bottom-left-radius:28px;border-bottom-right-radius:28px;padding:calc(16px + var(--safe-t)) 18px 22px;box-shadow:0 10px 30px rgba(0,0,0,.3);border-bottom:0}
+.hero-bar::before{content:"";position:absolute;top:-50px;right:-40px;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 40%,transparent),transparent 70%);pointer-events:none}
+.hero-bar>*{position:relative;z-index:1}
+.logo-mark{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--accent),var(--cyan));display:grid;place-items:center;box-shadow:var(--glow);cursor:pointer;border:0;padding:0}
+.wordmark{font-family:'Manrope',system-ui,sans-serif;font-weight:900;letter-spacing:-.02em;color:var(--text)}
+@keyframes poseBob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+@keyframes poseX{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.82)}}
+@keyframes poseSway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+@keyframes poseBreathe{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.05);opacity:.85}}
+.pose-bob{animation:poseBob 1.1s ease-in-out infinite}
+.pose-x{animation:poseX 1.1s ease-in-out infinite;transform-origin:center}
+.pose-sway{animation:poseSway 1s ease-in-out infinite;transform-origin:50% 90%}
+.pose-breathe{animation:poseBreathe 1.8s ease-in-out infinite;transform-origin:center}
+.logo-mark svg{width:24px;height:24px;pointer-events:none}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}.fade-up{animation:fadeUp .4s ease both}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 20px rgba(163,255,18,.2)}50%{box-shadow:0 0 36px rgba(163,255,18,.4)}}.pulse-glow{animation:pulseGlow 2.2s ease infinite}
+.safe-note{font-size:.72rem;color:var(--muted);line-height:1.45;padding:10px 12px;border-radius:12px;background:var(--bg2)}
+.hero-grad{background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(163,255,18,.18),transparent),radial-gradient(ellipse 60% 40% at 90% 20%,rgba(34,211,238,.12),transparent),var(--bg)}
+.preview-card{background:linear-gradient(160deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:20px;padding:16px;min-width:200px;flex-shrink:0}
+.stat-pill{background:var(--card2);border-radius:14px;padding:12px 14px;text-align:center;border:1px solid var(--line)}
+.landing-nav{position:sticky;top:var(--safe-t);z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(16px)}
+.scroll-x{display:flex;gap:12px;overflow-x:auto;padding:4px 2px 12px;scrollbar-width:none}.scroll-x::-webkit-scrollbar{display:none}
+.diff-card{border:1px solid var(--line);border-radius:18px;padding:16px;background:var(--card)}.diff-card h3{font-size:.95rem;font-weight:800;margin:0 0 6px}.diff-card p{font-size:.82rem;color:var(--muted);margin:0;line-height:1.45}
+.energy-bar{height:14px;border-radius:999px;background:var(--ring-track);overflow:hidden}.energy-bar>div{height:100%;border-radius:999px;transition:width .4s}
+.fuel-chip{border-radius:12px;padding:10px 12px;background:var(--card2);border:1px solid var(--line);font-size:.8rem;font-weight:700;cursor:pointer;text-align:center}
+.fuel-chip.on{background:color-mix(in srgb,var(--accent) 22%,var(--card2));border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.btn:disabled{opacity:.5;cursor:not-allowed;box-shadow:none}
+.comeback-banner{background:linear-gradient(135deg,color-mix(in srgb,var(--orange) 20%,transparent),color-mix(in srgb,var(--pink) 12%,transparent));border:1px solid color-mix(in srgb,var(--orange) 40%,transparent);border-radius:16px;padding:14px;margin-bottom:12px}
+.grace-pill{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:999px;font-size:.65rem;font-weight:800;background:color-mix(in srgb,var(--cyan) 18%,transparent);color:var(--cyan)}
+.login-shell{min-height:100dvh;position:relative;overflow:hidden;background:radial-gradient(ellipse 90% 60% at 50% -20%,rgba(163,255,18,.2),transparent),radial-gradient(ellipse 50% 40% at 100% 50%,rgba(34,211,238,.12),transparent),var(--bg)}
+.login-orb{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none}.login-orb-1{width:220px;height:220px;background:var(--accent);top:-40px;right:-60px;opacity:.25}.login-orb-2{width:180px;height:180px;background:var(--cyan);bottom:10%;left:-50px;opacity:.2}
+.login-inner{position:relative;z-index:1;max-width:420px;margin:0 auto;padding:20px 20px calc(28px + var(--safe-b));min-height:100dvh;display:flex;flex-direction:column;justify-content:center}
+.login-back{position:absolute;top:16px;left:16px;width:44px;height:44px;border-radius:14px;border:1px solid var(--line);background:color-mix(in srgb,var(--card) 80%,transparent);color:var(--text);font-size:1.1rem;font-weight:700;cursor:pointer}
+.login-kicker{font-size:.68rem;font-weight:800;letter-spacing:.14em;color:var(--accent);margin:0 0 10px;text-align:center}
+.login-title{font-size:clamp(2rem,8vw,2.6rem);font-weight:900;line-height:1.05;letter-spacing:-.03em;margin:0;text-align:center}.login-title span{color:var(--accent)}
+.login-sub{color:var(--muted);font-size:.92rem;line-height:1.5;margin:12px auto 0;max-width:300px;text-align:center}
+.login-card{margin-top:28px;background:color-mix(in srgb,var(--card) 92%,transparent);border:1px solid var(--line);border-radius:24px;padding:22px 18px;box-shadow:var(--shadow)}
+.login-field{margin-bottom:18px}.login-field label{display:block;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.login-goals{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.login-goal{border:1px solid var(--line);background:var(--bg2);color:var(--text);border-radius:14px;padding:12px 10px;font-size:.82rem;font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;min-height:64px}
+.login-goal.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent)}
+.login-foot{text-align:center;font-size:.72rem;margin-top:20px;color:var(--muted)}
+::-webkit-scrollbar{width:0;height:0}
+</style>
+</head>
+<body>
+<div id="screen-landing" class="screen on">
+  <div class="hero-grad">
+    <header class="landing-nav">
+      <button type="button" class="flex items-center gap-2.5 bg-transparent border-0 p-0 cursor-pointer" id="logoHome" aria-label="Momentum">
+        <span class="logo-mark"><svg viewBox="0 0 48 48" fill="none" stroke="#0a0f08" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9,37 L9,11 L24,27 L39,11 L39,37"/></svg></span>
+        <span class="wordmark text-lg">Moment<span style="color:var(--accent)">um</span></span>
+      </button>
+      <div class="flex items-center gap-2">
+        <button class="btn btn-ghost" style="min-height:40px;padding:8px 14px;font-size:.8rem" id="landTheme">☀️</button>
+        <button class="btn btn-soft" style="min-height:40px;padding:8px 14px;font-size:.8rem" id="landLogin">Enter</button>
+      </div>
+    </header>
+    <section class="px-5 pt-8 pb-10 max-w-lg mx-auto text-center fade-up">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold mb-5" style="background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent)">● 100% free · No account · Offline-first</div>
+      <h1 class="text-4xl sm:text-5xl font-black leading-[1.08] tracking-tight">Fitness that<br><span style="color:var(--accent)">doesn't punish you</span></h1>
+      <p class="muted mt-4 text-base leading-relaxed max-w-sm mx-auto">Built for students and anyone priced out of premium apps. No shame. No paywall. No cloud account.</p>
+      <div class="flex flex-col sm:flex-row gap-3 mt-8 justify-center">
+        <button class="btn btn-primary pulse-glow text-base px-8" id="ctaStart">Start free →</button>
+        <button class="btn btn-ghost text-base" id="ctaWhy">Why different?</button>
+      </div>
+    </section>
+  </div>
+  <section class="px-5 py-10 max-w-lg mx-auto" id="secWhy">
+    <p class="text-xs font-bold uppercase tracking-widest" style="color:var(--accent)">Why not another fitness app?</p>
+    <h2 class="text-2xl font-extrabold mt-1 mb-2">What big apps get wrong</h2>
+    <p class="muted text-sm mb-5">Studies on MyFitnessPal, Strava & Fitbit show users quit from shame, paywalls, lost streaks, and Western-only design. Momentum is built against that.</p>
+    <div class="space-y-3">
+      <div class="diff-card"><h3>🚫 Anti-shame, not calorie police</h3><p>Big apps trigger guilt logging “bad” food. We never shame meals. Fuel is optional. Effort counts on hard days.</p></div>
+      <div class="diff-card"><h3>💚 Streaks with grace days</h3><p>Miss a day? You don’t start at zero. Grace days + a Comeback boost protect motivation instead of punishing life.</p></div>
+      <div class="diff-card"><h3>📚 Student & hostel reality</h3><p>Exam mode, 5–10 min study-break moves, no-equipment hostel workouts, rainy-day plans. Campus life—not a Silicon Valley gym.</p></div>
+      <div class="diff-card"><h3>🇮🇳 Indian meals as fuel (not guilt)</h3><p>One-tap log for roti, dal, idli, dosa, rice, curd—without Western barcodes or sugar warnings on a banana.</p></div>
+      <div class="diff-card"><h3>🔒 Offline + your data stays yours</h3><p>Works with zero internet. No forced account. Export anytime. Nothing sold to advertisers.</p></div>
+      <div class="diff-card"><h3>⚡ Energy budget, not just steps</h3><p>Tell the app how drained you are. It suggests shorter or gentler moves so you still show up without burnout.</p></div>
+    </div>
+  </section>
+  <section class="px-5 py-8 max-w-lg mx-auto">
+    <p class="text-xs font-bold uppercase tracking-widest" style="color:var(--cyan)">Workouts</p>
+    <h2 class="text-2xl font-extrabold mt-1 mb-4">Train in a hostel room</h2>
+    <div class="scroll-x">
+      <div class="preview-card"><div class="text-3xl mb-2">📚</div><p class="font-bold">Study Break 8 min</p><p class="text-xs muted mt-1">Between lectures</p></div>
+      <div class="preview-card"><div class="text-3xl mb-2">🏠</div><p class="font-bold">Hostel Full Body</p><p class="text-xs muted mt-1">No equipment</p></div>
+      <div class="preview-card"><div class="text-3xl mb-2">🌧️</div><p class="font-bold">Rainy Day Reset</p><p class="text-xs muted mt-1">Indoor only</p></div>
+      <div class="preview-card"><div class="text-3xl mb-2">😴</div><p class="font-bold">Low Energy Flow</p><p class="text-xs muted mt-1">When drained</p></div>
+      <div class="preview-card"><div class="text-3xl mb-2">⚡</div><p class="font-bold">HIIT Express</p><p class="text-xs muted mt-1">12 min</p></div>
+    </div>
+  </section>
+  <section class="px-5 py-10 max-w-lg mx-auto text-center">
+    <h2 class="text-2xl font-extrabold">Free forever. No trial trap.</h2>
+    <p class="muted mt-2 text-sm">Every feature included. No Pro. No paywall.</p>
+    <button class="btn btn-primary text-base px-10 mt-6 pulse-glow" id="ctaBottom">Enter Momentum →</button>
+    <p class="safe-note mt-8 text-left">General fitness guidance only. Not medical advice.</p>
+    <p class="text-center text-xs muted mt-6 pb-8">Momentum · Student Innovation · Privacy-first</p>
+  </section>
+</div>
+
+<div id="screen-login" class="screen">
+  <div class="login-shell">
+    <div class="login-orb login-orb-1"></div><div class="login-orb login-orb-2"></div>
+    <div class="login-inner">
+      <button class="login-back" id="loginBack" type="button">←</button>
+      <div class="fade-up">
+        <button type="button" class="logo-mark mx-auto mb-4 border-0" style="width:64px;height:64px;border-radius:20px;display:grid" id="loginLogoBtn"><svg viewBox="0 0 48 48" fill="none" stroke="#0a0f08" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9,37 L9,11 L24,27 L39,11 L39,37"/></svg></button>
+        <p class="login-kicker">NO ACCOUNT · NO SHAME · 100% FREE</p>
+        <h1 class="login-title">Own your<br><span>momentum</span></h1>
+        <p class="login-sub">Local profile only. Your phone, your data, your pace.</p>
+      </div>
+      <div class="login-card fade-up" style="animation-delay:.08s">
+        <div class="login-field"><label for="loginName">Nickname</label><input id="loginName" class="input" placeholder="What should we call you?" maxlength="24"></div>
+        <div class="login-field"><label>Focus</label>
+          <div class="login-goals" id="loginGoals">
+            <button type="button" class="login-goal on" data-goal="active"><span>🚶</span> Move more</button>
+            <button type="button" class="login-goal" data-goal="fitness"><span>💪</span> Get fitter</button>
+            <button type="button" class="login-goal" data-goal="strength"><span>🏋️</span> Strength</button>
+            <button type="button" class="login-goal" data-goal="habit"><span>🔥</span> Daily habit</button>
+          </div>
+        </div>
+        <div class="login-field"><label for="loginLevel">Starting point</label>
+          <select id="loginLevel" class="input"><option value="beginner" selected>Beginner</option><option value="some">Some activity</option><option value="regular">Regular</option></select>
+        </div>
+        <button type="button" class="btn btn-primary w-full pulse-glow" id="loginGo">Let's go →</button>
+        <button type="button" class="btn btn-ghost w-full mt-2" id="loginGuest">Continue as Guest</button>
+      </div>
+      <p class="login-foot">Missed days won’t erase you. Comebacks are celebrated.</p>
+    </div>
+  </div>
+</div>
+
+<div id="screen-app" class="screen">
+  <section id="page-home" class="page on">
+    <div class="header-bar hero-bar">
+      <div class="flex items-center justify-between mb-4">
+        <button class="logo-mark" id="appLogo" type="button" aria-label="Home"><svg viewBox="0 0 48 48" fill="none" stroke="#0a0f08" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9,37 L9,11 L24,27 L39,11 L39,37"/></svg></button>
+        <button class="logo-mark" style="width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.08);box-shadow:none" id="homeSettings" aria-label="Settings"><span style="font-size:1.1rem">⚙️</span></button>
+      </div>
+      <p class="font-black text-2xl leading-tight" id="homeName">Hi</p>
+      <p class="text-sm" style="color:color-mix(in srgb,var(--text) 65%,transparent)" id="homeDate"></p>
+      <div class="flex items-center gap-2 mt-3" style="flex-wrap:wrap">
+        <span class="offline-pill" id="streakBadge">🔥 0 day streak</span>
+        <span class="offline-pill" id="heroLevelBadge">⭐ Level 1</span>
+        <span class="offline-pill" id="offlinePill">● Offline</span>
+      </div>
+    </div>
+    <div class="section-pad space-y-4">
+      <div id="comebackBox" class="hidden comeback-banner">
+        <p class="font-bold text-sm">👋 Welcome back</p>
+        <p class="text-xs muted mt-1">Missed days don’t count against you. Do one small thing and unlock a <b>Comeback boost</b> (+25 XP).</p>
+        <button class="btn btn-soft mt-2 text-sm" id="claimComeback" style="min-height:40px">Claim boost →</button>
+      </div>
+      <div class="card p-5 flex flex-col items-center">
+        <div class="ring" id="dayRing" style="--p:0"><div class="ring-inner"><div class="text-3xl font-black" id="dayPct" style="color:var(--accent)">0%</div><div class="text-xs muted">Today</div></div></div>
+        <p class="mt-3 text-sm font-semibold text-center" id="motto"></p>
+        <div class="flex items-center gap-2 mt-2"><span class="grace-pill" id="gracePill">Grace days left: 2</span></div>
+        <div class="grid grid-cols-4 gap-2 w-full mt-4 text-center">
+          <div><div class="text-lg font-bold" id="hSteps">0</div><div class="text-[10px] muted">Steps</div></div>
+          <div><div class="text-lg font-bold" id="hMin">0</div><div class="text-[10px] muted">Min</div></div>
+          <div><div class="text-lg font-bold" id="hWork">0</div><div class="text-[10px] muted">Workouts</div></div>
+          <div><div class="text-lg font-bold" id="hWater">0</div><div class="text-[10px] muted">Water</div></div>
+        </div>
+      </div>
+      <div class="card p-4">
+        <div class="flex justify-between items-center mb-2"><h2 class="font-bold">Today’s energy</h2><span class="text-xs muted" id="energyLabel">Normal</span></div>
+        <p class="text-xs muted mb-3">How drained are you? We’ll suggest gentler moves when needed.</p>
+        <div class="flex gap-2 mb-3" id="energyBtns"><button class="chip" data-e="low">😴 Low</button><button class="chip on" data-e="ok">🙂 OK</button><button class="chip" data-e="high">⚡ High</button></div>
+        <div class="energy-bar"><div id="energyFill" style="width:60%;background:linear-gradient(90deg,var(--cyan),var(--accent))"></div></div>
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <button class="btn btn-primary" id="qaWorkout">▶ Workout</button>
+        <button class="btn btn-cyan" id="qaWalk">🚶 Walk</button>
+        <button class="btn btn-soft" id="qaFuel">🍽️ Log fuel</button>
+        <button class="btn btn-ghost" id="qaStudent">📚 Study break</button>
+      </div>
+      <div class="card p-4">
+        <div class="flex justify-between"><div><p class="text-sm muted">Streak <span class="grace-pill">+ grace</span></p><p class="text-2xl font-black"><span id="streakN">0</span> <span class="text-base muted font-semibold">days</span></p></div>
+        <div class="text-right"><p class="text-sm muted">XP · L<span id="levelN">1</span></p><p class="text-2xl font-black" id="xpN" style="color:var(--accent)">0</p></div></div>
+        <div class="xp-bar mt-3"><div id="xpBar" style="width:0%"></div></div>
+      </div>
+      <div><h2 class="font-bold text-lg mb-2">Suggested for you</h2><div class="space-y-2" id="todayPlan"></div></div>
+      <div class="card p-4"><div class="flex justify-between mb-2"><h2 class="font-bold">Habits</h2><button class="text-sm font-bold" style="color:var(--accent)" id="openHabits">All</button></div><div id="habitPreview"></div></div>
+    </div>
+  </section>
+  <section id="page-workouts" class="page" style="display:none">
+    <div class="header-bar"><h1 class="font-bold text-xl">Workouts</h1><p class="text-xs muted">Hostel-friendly · no equipment</p></div>
+    <div class="section-pad space-y-4"><input id="exSearch" class="input" placeholder="🔍 Search exercises…" oninput="renderWorkouts()"><div class="flex gap-2 overflow-x-auto pb-1" id="workCats"></div><div id="workList" class="space-y-3"></div></div>
+  </section>
+  <section id="page-activity" class="page" style="display:none">
+    <div class="header-bar"><h1 class="font-bold text-xl">Activity</h1></div>
+    <div class="section-pad space-y-4">
+      <div class="card p-4">
+        <div class="flex justify-between items-start"><div><p class="text-sm muted">Steps today</p><p class="text-4xl font-black" id="actSteps">0</p><p class="text-sm muted"><span id="actDist">0.00</span> km · goal <span id="actGoal">8000</span></p></div><button class="btn btn-ghost text-sm" id="editStepGoal">Edit</button></div>
+        <div class="progress-bar mt-3"><div id="stepBar" style="width:0%"></div></div>
+        <div class="flex gap-2 mt-4 flex-wrap"><button class="btn btn-primary" id="stepStart">▶ Start</button><button class="btn btn-ghost" id="stepPause">⏸</button><button class="btn btn-ghost" id="stepReset">Reset</button><button class="btn btn-soft" id="manualSteps">+10</button></div>
+        <p class="text-xs muted mt-2" id="stepStatus">Tap Start — motion sensor or demo walk</p>
+      </div>
+      <div class="card p-4"><h2 class="font-bold mb-3">Water</h2>
+        <div class="flex items-center gap-4"><div class="bottle"><div class="bottle-fill" id="bottleFill" style="height:0%"></div></div>
+        <div class="flex-1"><p class="text-2xl font-bold"><span id="waterMl">0</span> / <span id="waterGoal">2000</span> ml</p>
+        <div class="flex flex-wrap gap-2 mt-3"><button class="chip" data-ml="250">+250</button><button class="chip" data-ml="500">+500</button><button class="chip" data-ml="custom">Custom</button></div></div></div>
+      </div>
+      <div class="card p-4 flex items-center justify-between"><div><h2 class="font-bold">Fuel today</h2><p class="text-xs muted mt-1">~<span id="actKcal">0</span> kcal logged · estimate, no targets</p></div><button class="btn btn-soft" onclick="openFuel()">🍽️ Log</button></div>
+      <div class="card p-4"><h2 class="font-bold mb-2">Active days</h2><div class="heatmap" id="heatmap"></div></div>
+    </div>
+  </section>
+  <section id="page-progress" class="page" style="display:none">
+    <div class="header-bar"><h1 class="font-bold text-xl">Progress</h1></div>
+    <div class="section-pad space-y-4">
+      <div class="card p-4"><h2 class="font-bold mb-3">This week</h2>
+        <div class="grid grid-cols-2 gap-3 text-center">
+          <div class="stat-pill"><div class="text-2xl font-black" id="wWorkouts">0</div><div class="text-xs muted">Workouts</div></div>
+          <div class="stat-pill"><div class="text-2xl font-black" id="wMinutes">0</div><div class="text-xs muted">Minutes</div></div>
+          <div class="stat-pill"><div class="text-2xl font-black" id="wSteps">0</div><div class="text-xs muted">Steps</div></div>
+          <div class="stat-pill"><div class="text-2xl font-black" id="wConsistency">0%</div><div class="text-xs muted">Consistency</div></div>
+        </div>
+        <div class="flex items-end justify-around h-28 mt-4 gap-1" id="weekChart"></div>
+        <div class="flex justify-around text-[10px] muted mt-1" id="weekLabels"></div>
+      </div>
+      <div class="card p-4"><h2 class="font-bold mb-3">Personal bests</h2>
+        <div class="grid grid-cols-3 gap-3 text-center">
+          <div class="stat-pill"><div class="text-2xl font-black" id="bestStreakN" style="color:var(--orange)">0</div><div class="text-xs muted">Best streak</div></div>
+          <div class="stat-pill"><div class="text-2xl font-black" id="bestStepsN" style="color:var(--cyan)">0</div><div class="text-xs muted">Best step day</div></div>
+          <div class="stat-pill"><div class="text-2xl font-black" id="totalWorkoutsN" style="color:var(--accent)">0</div><div class="text-xs muted">Workouts ever</div></div>
+        </div>
+      </div>
+      <div class="card p-4"><div class="flex justify-between items-center mb-1"><h2 class="font-bold">Achievements</h2><span class="text-xs muted" id="badgeCount">0/10</span></div><p class="text-xs muted mb-3">Tap any badge to see how to unlock it.</p><div class="grid grid-cols-4 gap-3" id="badgeGrid"></div></div>
+      <div class="card p-4"><h2 class="font-bold mb-2">History</h2><div id="histList" class="text-sm space-y-2"></div></div>
+    </div>
+  </section>
+  <section id="page-profile" class="page" style="display:none">
+    <div class="header-bar"><h1 class="font-bold text-xl">Profile</h1></div>
+    <div class="section-pad space-y-4">
+      <div class="card p-4 flex items-center gap-3">
+        <div class="w-14 h-14 rounded-2xl grid place-items-center text-2xl font-black" style="background:linear-gradient(135deg,var(--accent),var(--cyan));color:#0a0f08" id="avatarLetter">M</div>
+        <div><p class="font-bold text-lg" id="profName">Guest</p><p class="text-sm muted" id="profMeta">Free · Offline · Private</p></div>
+      </div>
+      <div class="card p-2">
+        <button class="w-full text-left px-3 py-3 flex justify-between border-b" style="border-color:var(--line)" id="setTheme"><span>Theme</span><span class="muted text-sm" id="themeLabel">Dark</span></button>
+        <button class="w-full text-left px-3 py-3 flex justify-between border-b" style="border-color:var(--line)" id="setExam"><span>Exam week mode</span><span class="toggle" id="examToggle"></span></button>
+        <button class="w-full text-left px-3 py-3 flex justify-between border-b" style="border-color:var(--line)" id="setBmi"><span>BMI check</span><span class="muted text-sm" id="bmiLabel">—</span></button>
+        <button class="w-full text-left px-3 py-3 flex justify-between border-b" style="border-color:var(--line)" id="setExport"><span>Export my data</span><span>↓</span></button>
+        <button class="w-full text-left px-3 py-3 flex justify-between" id="setImport"><span>Import / restore data</span><span>↑</span></button>
+        <input type="file" id="importFile" accept="application/json" style="display:none">
+      </div>
+      <div class="card p-4"><div class="flex justify-between items-center mb-1"><h2 class="font-bold">Reminders</h2><span class="text-xs muted" id="notifStatus">—</span></div><p class="text-xs muted mb-3">Gentle nudges while Momentum is open in your browser tab. For true background alerts even when it's closed, install this as a phone app first (share menu → Add to Home Screen).</p><div id="remList" class="space-y-2"></div></div>
+      <div class="card p-2">
+        <button class="w-full text-left px-3 py-3 flex justify-between" id="setReset"><span>Reset today</span><span style="color:var(--orange)">↺</span></button>
+      </div>
+      <div class="card p-4"><h2 class="font-bold mb-2">What makes us different</h2>
+        <ul class="text-sm muted space-y-2">
+          <li>• Grace days — missed days don’t zero your streak</li>
+          <li>• Comeback boost after time away</li>
+          <li>• Energy-aware suggestions</li>
+          <li>• Indian fuel log without shame</li>
+          <li>• 100% free · offline · no account</li>
+        </ul>
+      </div>
+      <p class="safe-note">Not medical advice. Your body, your pace.</p>
+    </div>
+  </section>
+  <nav class="nav">
+    <button class="active" data-page="home"><span class="ico">⌂</span>Home</button>
+    <button data-page="workouts"><span class="ico">🏋️</span>Workouts</button>
+    <button data-page="activity"><span class="ico">◔</span>Activity</button>
+    <button data-page="progress"><span class="ico">📊</span>Progress</button>
+    <button data-page="profile"><span class="ico">☺</span>Profile</button>
+  </nav>
+  <button class="fab" id="fab">+</button>
+</div>
+
+<div id="workoutMode" class="workout-mode" style="display:none">
+  <div class="flex justify-between items-center mb-2"><button class="btn btn-ghost" id="wmClose">✕</button><span class="text-sm font-bold muted" id="wmProgress">1/8</span><button class="btn btn-ghost" id="wmSkip">Skip</button></div>
+  <div class="flex-1 flex flex-col items-center justify-center text-center"><div class="card" style="padding:18px;border-radius:24px" id="wmPose"></div><h2 class="text-2xl font-extrabold mt-4" id="wmName">Exercise</h2><p class="muted mt-2 text-sm max-w-sm" id="wmInstr"></p><div class="timer-big mt-6" id="wmTimer">00:30</div><p class="text-sm muted mt-1" id="wmMeta"></p></div>
+  <div class="grid grid-cols-3 gap-2"><button class="btn btn-ghost" id="wmPrev">◀</button><button class="btn btn-primary" id="wmPlay">▶</button><button class="btn btn-ghost" id="wmNext">▶</button></div>
+  <button class="btn btn-cyan w-full mt-3" id="wmDone">Done · next</button>
+</div>
+<div id="modalRoot"></div>
+<script>
+const $=id=>document.getElementById(id);
+const today=()=>new Date().toISOString().slice(0,10);
+const key=k=>`mom2_${k}`;
+const load=(k,d)=>{try{const v=localStorage.getItem(key(k));return v!=null?JSON.parse(v):d}catch{return d}};
+const save=(k,v)=>{try{localStorage.setItem(key(k),JSON.stringify(v))}catch{}};
+let profile=load("profile",null),steps=load("steps_"+today(),0),water=load("water_"+today(),0);
+let stepGoal=load("stepGoal",8000),waterGoal=load("waterGoal",2000),streak=load("streak",0),lastActive=load("lastActive","");
+let graceLeft=load("grace",2),xp=load("xp",0),level=load("level",1),hist=load("hist",{}),workoutLog=load("workoutLog",[]);
+let habits=load("habits",[{id:"h1",name:"Move 10 min"},{id:"h2",name:"Stretch"},{id:"h3",name:"Water goal"},{id:"h4",name:"Study break"}]);
+let doneHabitsToday=load("habits_"+today(),{}),badges=load("badges",{}),examMode=load("examMode",false),darkPref=load("theme","dark");
+let activeMinutes=load("amin_"+today(),0),workoutsToday=load("wt_"+today(),0),energy=load("energy_"+today(),"ok"),loginGoal="active",comebackPending=false;
+let totalWorkouts=load("totalWorkouts",0),bestStreak=load("bestStreak",streak),bestSteps=load("bestSteps",0);
+let exOverrides=load("exOverrides",{}),reminders=load("reminders",{workout:{on:false,time:"18:00"},water:{on:false,time:"11:00"},move:{on:false,time:"15:00"}}),notifStatus=typeof Notification!=="undefined"?Notification.permission:"unsupported";
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+function getExData(e){const o=exOverrides[e.n];return o?{...e,m:o.m||e.m,t:o.t||e.t}:e}
+const EX={student:[{n:"Desk Stretch",m:"2 min",d:"Shoulder rolls, neck tilts.",i:"🪑",t:120},{n:"Chair Squat",m:"2×10",d:"Stand and sit with control.",i:"🦵",t:40},{n:"Wall Push-Up",m:"2×10",d:"Gentle press from wall.",i:"💪",t:40},{n:"Standing March",m:"2 min",d:"Lift knees, swing arms.",i:"🚶",t:120},{n:"Eye Rest",m:"1 min",d:"Palm over closed eyes.",i:"👁️",t:60},{n:"Seated Spinal Twist",m:"2×8/side",d:"Sit tall, rotate from the waist, hold the chair back.",i:"🔄",t:50},{n:"Wrist & Forearm Stretch",m:"1 min",d:"Extend arm, gently pull fingers back, then flip and repeat.",i:"🖐️",t:60},{n:"Calf Raises",m:"3×15",d:"Hold the desk, rise onto toes, lower slow.",i:"🦶",t:45},{n:"Doorway Chest Stretch",m:"1 min",d:"Forearm on frame, step through gently, feel the chest open.",i:"🚪",t:60},{n:"Standing Side Bend",m:"2×8/side",d:"Reach overhead and lean sideways, feel the ribs stretch.",i:"🙆",t:45},{n:"Ankle Circles",m:"2×10/side",d:"Lift one foot, circle the ankle both directions.",i:"🌀",t:40}],
+hostel:[{n:"Bodyweight Squat",m:"3×12",d:"Sit back, chest tall.",i:"🦵",t:45},{n:"Knee Push-Up",m:"3×8",d:"Knees down, body straight.",i:"💪",t:40},{n:"Glute Bridge",m:"3×15",d:"Squeeze at top.",i:"🍑",t:40},{n:"Plank",m:"3×20s",d:"Tight core, breathe.",i:"🧱",t:20},{n:"Reverse Lunge",m:"3×8/side",d:"Step back, steady.",i:"🦵",t:50}],
+rainy:[{n:"March in Place",m:"3 min",d:"Easy pace indoors.",i:"🚶",t:180},{n:"Arm Circles",m:"1 min",d:"Forward and back.",i:"🙆",t:60},{n:"Wall Sit",m:"3×20s",d:"Back on wall.",i:"🦵",t:20},{n:"Seated Twist",m:"1 min/side",d:"Gentle rotation.",i:"🧘",t:60},{n:"Box Breathing",m:"3 min",d:"In 4 hold 4 out 4.",i:"🌬️",t:180}],
+low:[{n:"Cat-Cow",m:"2 min",d:"Slow spine waves.",i:"🧘",t:120},{n:"Child's Pose",m:"1 min",d:"Rest forehead down.",i:"🙏",t:60},{n:"Gentle Walk",m:"5 min",d:"Around the room.",i:"🚶",t:300},{n:"Shoulder Rolls",m:"1 min",d:"Release tension.",i:"🙆",t:60}],
+full:[{n:"Squat",m:"3×12",d:"Feet shoulder-width.",i:"🦵",t:45},{n:"Push-Up",m:"3×8",d:"Knees ok.",i:"💪",t:40},{n:"Plank",m:"3×30s",d:"Straight line.",i:"🧱",t:30},{n:"Glute Bridge",m:"3×15",d:"Drive through heels.",i:"🍑",t:40},{n:"Mountain Climbers",m:"3×20s",d:"From plank.",i:"⚡",t:20}],
+cardio:[{n:"Jumping Jacks",m:"30s",d:"Land soft.",i:"⚡",t:30},{n:"High Knees",m:"30s",d:"Knees up.",i:"🏃",t:30},{n:"Shadow Boxing",m:"45s",d:"Light jabs.",i:"🥊",t:45},{n:"March Recovery",m:"1 min",d:"Breathe.",i:"🚶",t:60}]};
+const CATS=[{id:"student",label:"Study Break",icon:"📚"},{id:"hostel",label:"Hostel",icon:"🏠"},{id:"rainy",label:"Rainy Day",icon:"🌧️"},{id:"low",label:"Low Energy",icon:"😴"},{id:"full",label:"Full Body",icon:"🏋️"},{id:"cardio",label:"Cardio",icon:"⚡"}];
+const FUEL=[{n:"Roti",e:"🫓",kcal:90},{n:"Dal",e:"🥣",kcal:120},{n:"Rice",e:"🍚",kcal:200},{n:"Idli",e:"⚪",kcal:40},{n:"Dosa",e:"🥞",kcal:120},{n:"Curd",e:"🥛",kcal:60},{n:"Banana",e:"🍌",kcal:90},{n:"Egg",e:"🥚",kcal:70},{n:"Milk",e:"🥛",kcal:150},{n:"Salad",e:"🥗",kcal:50},{n:"Tea",e:"☕",kcal:40},{n:"Water",e:"💧",kcal:0}];
+const POSES={squat:'<circle cx="30" cy="9" r="5" fill="currentColor"/><path d="M30,14 L30,29 M30,29 L22,39 L20,51 M30,29 L38,39 L40,51 M30,17 L18,23 M30,17 L42,23"/>',plank:'<circle cx="11" cy="19" r="5" fill="currentColor"/><path d="M11,24 L49,39 M18,27 L16,45 M40,35 L38,45"/>',bridge:'<circle cx="8" cy="42" r="4" fill="currentColor"/><path d="M8,46 L24,46 Q36,30 44,46 L52,40"/>',lunge:'<circle cx="30" cy="9" r="5" fill="currentColor"/><path d="M30,14 L30,28 M30,28 L22,40 L20,52 M30,28 L40,44 L48,54 M30,18 L24,24 M30,18 L36,24"/>',march:'<circle cx="30" cy="9" r="5" fill="currentColor"/><path d="M30,14 L30,30 M30,30 L24,20 L22,30 M30,30 L32,44 L34,56 M30,19 L40,15 M30,19 L20,25"/>',jack:'<circle cx="30" cy="9" r="5" fill="currentColor"/><path d="M30,14 L30,32 M30,32 L16,54 M30,32 L44,54 M30,17 L14,6 M30,17 L46,6"/>',wallsit:'<path d="M6,4 L6,54" stroke-dasharray="3 4" opacity=".5"/><circle cx="20" cy="10" r="5" fill="currentColor"/><path d="M20,15 L20,32 L34,32 L34,50"/>',climber:'<circle cx="10" cy="19" r="5" fill="currentColor"/><path d="M10,24 L40,40 M40,40 L30,34 L24,40 M16,27 L14,45"/>',boxing:'<circle cx="28" cy="9" r="5" fill="currentColor"/><path d="M28,14 L28,30 M28,30 L24,42 L22,54 M28,30 L36,42 L42,52 M28,17 L20,21 L16,17 M28,17 L38,19 L44,15"/>',stretch:'<circle cx="30" cy="9" r="5" fill="currentColor"/><path d="M30,14 L30,34 M30,34 L24,54 M30,34 L36,54 M30,16 L20,5 M30,16 L40,5"/>',wallpress:'<path d="M44,2 L44,56" stroke-dasharray="3 4" opacity=".5"/><circle cx="12" cy="12" r="5" fill="currentColor"/><path d="M12,17 L20,30 M20,30 L16,42 L14,54 M20,30 L25,44 L27,54 M14,20 L42,17"/>',floorstretch:'<circle cx="9" cy="37" r="4" fill="currentColor"/><path d="M9,41 Q26,18 45,40 M45,40 L45,52"/>',seated:'<circle cx="30" cy="9" r="5" fill="currentColor"/><path d="M30,14 L30,32 M18,43 L42,43 M30,32 L21,43 M30,32 L39,43 M30,19 L22,29 M30,19 L38,29"/>'};
+function poseFor(n){n=(n||"").toLowerCase();if(n.includes("wall push"))return"wallpress";if(n.includes("squat"))return"squat";if(n.includes("push-up")||n.includes("push up")||n.includes("plank"))return"plank";if(n.includes("bridge"))return"bridge";if(n.includes("lunge"))return"lunge";if(n.includes("jumping jack"))return"jack";if(n.includes("wall sit"))return"wallsit";if(n.includes("mountain climber"))return"climber";if(n.includes("boxing"))return"boxing";if(n.includes("cat-cow")||n.includes("child's pose")||n.includes("childs pose"))return"floorstretch";if(n.includes("seated")||n.includes("eye rest")||n.includes("box breathing"))return"seated";if(n.includes("march")||n.includes("walk")||n.includes("high knees"))return"march";return"stretch"}
+const POSE_MOTION={squat:"pose-bob",lunge:"pose-bob",wallsit:"pose-breathe",jack:"pose-x",march:"pose-sway",climber:"pose-sway",boxing:"pose-sway",bridge:"pose-breathe",plank:"pose-breathe",stretch:"pose-breathe",wallpress:"pose-bob",floorstretch:"pose-breathe",seated:"pose-breathe"};
+function poseSvg(name,size){size=size||44;const k=poseFor(name);return `<svg class="${POSE_MOTION[k]||""}" viewBox="0 0 60 60" width="${size}" height="${size}" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)">${POSES[k]}</svg>`}
+const BADGE_DEFS=[{id:"first",name:"First move",icon:"🌟",desc:"Complete your very first workout.",check:()=>workoutLog.length>=1,prog:()=>[Math.min(1,workoutLog.length),1]},{id:"comeback",name:"Comeback",icon:"🔄",desc:"Return after missed days and claim a Comeback boost.",check:()=>!!badges._comeback,prog:()=>[badges._comeback?1:0,1]},{id:"streak3",name:"3-day streak",icon:"🔥",desc:"Keep your streak alive for 3 days.",check:()=>streak>=3,prog:()=>[Math.min(streak,3),3]},{id:"grace",name:"Used grace",icon:"🛡️",desc:"Miss a day and let a grace day protect your streak.",check:()=>graceLeft<2,prog:()=>[graceLeft<2?1:0,1]},{id:"walk",name:"Walk day",icon:"👟",desc:"Hit your full step goal in one day.",check:()=>steps>=stepGoal,prog:()=>[Math.min(steps,stepGoal),stepGoal]},{id:"fuel",name:"Fuel logged",icon:"🍽️",desc:"Log a meal — no scores, no shame.",check:()=>!!load("fuel_"+today(),false),prog:()=>[load("fuel_"+today(),false)?1:0,1]},{id:"student",name:"Study break",icon:"📚",desc:"Complete a Study Break session between classes.",check:()=>workoutLog.some(w=>w.cat==="student"),prog:()=>[workoutLog.some(w=>w.cat==="student")?1:0,1]},{id:"xp100",name:"100 XP",icon:"✨",desc:"Earn 100 total XP.",check:()=>xp>=100||level>1,prog:()=>[Math.min(xp,100),100]},{id:"hydro",name:"Hydration hero",icon:"💧",desc:"Hit your water goal in one day.",check:()=>water>=waterGoal,prog:()=>[Math.min(water,waterGoal),waterGoal]},{id:"century",name:"Century club",icon:"🏆",desc:"Log 20 workouts in total — real, lasting consistency.",check:()=>totalWorkouts>=20,prog:()=>[Math.min(totalWorkouts,20),20]}];
+function dayScore(){const s=Math.min(1,steps/stepGoal)*30,w=Math.min(1,water/waterGoal)*20,wo=Math.min(30,workoutsToday*15),h=Math.min(20,Object.values(doneHabitsToday).filter(Boolean).length*5);return Math.round(s+w+wo+h)}
+function addXp(n){xp+=n;while(xp>=level*100){xp-=level*100;level++}save("xp",xp);save("level",level);checkBadges();renderHome()}
+function checkBadges(){BADGE_DEFS.forEach(b=>{if(!badges[b.id]&&b.check()){badges[b.id]=today();save("badges",badges);toast(b.icon+" "+b.name)}})}
+function updateStreak(){const sc=dayScore(),t=today();if(sc>=35){if(lastActive!==t){const y=new Date();y.setDate(y.getDate()-1);const yk=y.toISOString().slice(0,10);if(lastActive===yk)streak++;else if(lastActive){const gapDays=Math.floor((new Date(t)-new Date(lastActive))/86400000)-1;if(gapDays>0&&graceLeft>0){const use=Math.min(gapDays,graceLeft);graceLeft-=use;save("grace",graceLeft);streak+=1;toast("Grace day used ("+use+"). Streak safe.")}else if(gapDays>0){comebackPending=true;streak=1}else streak=1}else streak=1;lastActive=t;save("streak",streak);save("lastActive",lastActive)}}else if(lastActive&&lastActive!==t){const gap=Math.floor((new Date(t)-new Date(lastActive))/86400000);if(gap>=2)comebackPending=true}hist[t]={score:sc,steps,water,workouts:workoutsToday,minutes:activeMinutes};save("hist",hist);if(streak>bestStreak){bestStreak=streak;save("bestStreak",bestStreak)}if(steps>bestSteps){bestSteps=steps;save("bestSteps",bestSteps)}}
+function toast(msg){const t=document.createElement("div");t.textContent=msg;t.style.cssText="position:fixed;bottom:calc(90px + var(--safe-b));left:50%;transform:translateX(-50%);background:var(--accent);color:#0a0f08;padding:10px 16px;border-radius:12px;font-size:.85rem;font-weight:800;z-index:100;max-width:90%;text-align:center";document.body.appendChild(t);setTimeout(()=>t.remove(),2800)}
+function applyTheme(){document.body.classList.toggle("light",darkPref==="light");const tl=$("themeLabel");if(tl)tl.textContent=darkPref==="light"?"Light":"Dark";const lb=$("landTheme");if(lb)lb.textContent=darkPref==="light"?"🌙":"☀️"}
+function showScreen(id){document.querySelectorAll(".screen").forEach(s=>{s.classList.remove("on");s.style.display="none"});const el=$(id);el.classList.add("on");el.style.display="block"}
+function showPage(name){document.querySelectorAll(".page").forEach(p=>p.style.display="none");const p=$("page-"+name);if(p)p.style.display="block";document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===name));if(name==="home")renderHome();if(name==="workouts")renderWorkouts();if(name==="activity")renderActivity();if(name==="progress")renderProgress();if(name==="profile")renderProfile()}
+function goLogin(){showScreen("screen-login")}
+function enterApp(guest){if(guest)profile={name:"Guest",level:"beginner",goal:"active"};else profile={name:$("loginName").value.trim()||"Friend",level:$("loginLevel").value,goal:loginGoal};save("profile",profile);save("onboarded",true);showScreen("screen-app");showPage("home");renderHome()}
+function renderHome(){checkBadges();$("homeName").textContent="Hi, "+(profile?.name||"there");$("homeDate").textContent=new Date().toLocaleDateString(undefined,{weekday:"long",month:"short",day:"numeric"});$("hSteps").textContent=steps.toLocaleString();$("hMin").textContent=activeMinutes;$("hWork").textContent=workoutsToday;$("hWater").textContent=Math.round(water/250);const pct=Math.min(100,dayScore());$("dayPct").textContent=pct+"%";$("dayRing").style.setProperty("--p",pct);$("streakN").textContent=streak;$("streakBadge").textContent="🔥 "+streak+" day streak";$("heroLevelBadge").textContent="⭐ Level "+level;$("levelN").textContent=level;$("xpN").textContent=xp;$("xpBar").style.width=Math.min(100,(xp/(level*100))*100)+"%";$("gracePill").textContent="Grace days left: "+graceLeft;const mottos=["Effort counts. Perfection doesn’t.","A short session still builds the habit.","You’re allowed to restart without shame."];$("motto").textContent=examMode?"Exam week: tiny movement beats none.":mottos[new Date().getDate()%3];const box=$("comebackBox");if(comebackPending&&!load("comeback_claimed_"+today(),false))box.classList.remove("hidden");else box.classList.add("hidden");document.querySelectorAll("#energyBtns .chip").forEach(c=>c.classList.toggle("on",c.dataset.e===energy));const em={low:30,ok:60,high:90};$("energyFill").style.width=(em[energy]||60)+"%";$("energyLabel").textContent={low:"Low — gentle moves",ok:"Normal",high:"High — you can push"}[energy];let plan;if(examMode||energy==="low")plan=[{t:"5-min low energy flow",a:()=>startWorkout("low")},{t:"Log a glass of water",a:()=>addWater(250)},{t:"2-min desk stretch",a:()=>startWorkout("student")}];else if(energy==="high")plan=[{t:"Hostel full body",a:()=>startWorkout("hostel")},{t:"Walk toward step goal",a:()=>showPage("activity")},{t:"Log fuel (no shame)",a:()=>openFuel()}];else plan=[{t:examMode?"Study-break moves":"Study break or hostel session",a:()=>startWorkout(examMode?"student":"hostel")},{t:"Steps or short walk",a:()=>showPage("activity")},{t:"Water check",a:()=>addWater(250)}];$("todayPlan").innerHTML=plan.map((p,i)=>`<button class="card p-3 w-full text-left flex items-center gap-3" data-pi="${i}"><span class="text-xl">${["①","②","③"][i]}</span><span class="font-semibold flex-1">${p.t}</span><span style="color:var(--accent)">→</span></button>`).join("");window._plan=plan.map(p=>p.a);$("todayPlan").querySelectorAll("[data-pi]").forEach(b=>b.onclick=()=>window._plan[+b.dataset.pi]());$("habitPreview").innerHTML=habits.slice(0,3).map(h=>{const done=!!doneHabitsToday[h.id];return `<label class="flex items-center gap-3 py-1"><input type="checkbox" ${done?"checked":""} onchange="toggleHabit('${h.id}',this.checked)" style="width:18px;height:18px;accent-color:var(--accent)"><span class="${done?"line-through muted":""}">${h.name}</span></label>`}).join("")}
+window.toggleHabit=(id,checked)=>{doneHabitsToday[id]=checked;save("habits_"+today(),doneHabitsToday);if(checked)addXp(8);updateStreak();renderHome();checkBadges()};
+let workCat="student";
+function renderWorkouts(q){$("workCats").innerHTML=CATS.map(c=>`<button class="chip ${workCat===c.id?"on":""}" data-cat="${c.id}">${c.icon} ${c.label}</button>`).join("");$("workCats").querySelectorAll("[data-cat]").forEach(b=>b.onclick=()=>{workCat=b.dataset.cat;$("exSearch").value="";renderWorkouts()});const term=(q!=null?q:$("exSearch")?.value||"").trim().toLowerCase();let list=(EX[workCat]||[]).map(getExData);if(term)list=list.filter(e=>e.n.toLowerCase().includes(term)||e.d.toLowerCase().includes(term));$("workList").innerHTML=`<button class="btn btn-primary w-full mb-2" id="startCatBtn">▶ Start ${CATS.find(c=>c.id===workCat)?.label||""}</button>`+(list.length?list.map(e=>`<div class="ex-card" data-open="${e.n}" tabindex="0" role="button" aria-label="Preview ${e.n}"><div class="ex-icon">${poseSvg(e.n,32)}</div><div class="flex-1"><p class="font-bold">${e.i} ${e.n}</p><p class="text-xs muted">${e.m}</p><p class="text-sm mt-1">${e.d}</p></div><button class="btn btn-ghost" style="min-height:36px;padding:8px 10px;font-size:.75rem" data-edit="${e.n}" aria-label="Edit ${e.n}">✏️</button></div>`).join(""):`<p class="muted text-center py-6">No exercises match "${term}".</p>`);$("startCatBtn").onclick=()=>startWorkout(workCat);$("workList").querySelectorAll("[data-edit]").forEach(b=>b.onclick=(ev)=>{ev.stopPropagation();editExercise(b.dataset.edit)});$("workList").querySelectorAll("[data-open]").forEach(c=>{c.onclick=()=>openExerciseDetail(c.dataset.open);c.onkeydown=(ev)=>{if(ev.key==="Enter")openExerciseDetail(c.dataset.open)}})}
+let exTimer=null,exLeft=0;
+function openExerciseDetail(name){const base=Object.values(EX).flat().find(x=>x.n===name);if(!base)return;const e=getExData(base);clearInterval(exTimer);exLeft=e.t||30;let running=false;openModal(`<div class="text-center"><div class="card" style="padding:18px;border-radius:22px;display:inline-block" aria-hidden="true">${poseSvg(name,120)}</div><h3 class="font-bold text-xl mt-3">${e.i} ${name}</h3><p class="text-sm muted mt-1">${e.d}</p><p class="text-xs muted mt-1">${e.m}</p><div class="text-4xl font-black mt-4" id="exdTimer" style="color:var(--accent)">${fmt(exLeft)}</div><div class="flex gap-2 justify-center mt-3"><button class="btn btn-primary" id="exdPlay">▶ Start</button><button class="btn btn-ghost" id="exdReset">↺ Reset</button></div><div class="grid grid-cols-2 gap-2 mt-4"><button class="btn btn-soft" id="exdEdit">✏️ Adjust</button><button class="btn btn-soft" id="exdDone">✓ Mark done</button></div></div>`);$("exdPlay").onclick=()=>{running=!running;$("exdPlay").textContent=running?"⏸ Pause":"▶ Start";clearInterval(exTimer);if(running)exTimer=setInterval(()=>{exLeft--;if(exLeft<=0){exLeft=0;clearInterval(exTimer);running=false;$("exdPlay").textContent="▶ Start";if(navigator.vibrate)navigator.vibrate(200);toast("Round complete 👍")}$("exdTimer").textContent=fmt(exLeft)},1000)};$("exdReset").onclick=()=>{clearInterval(exTimer);running=false;exLeft=e.t||30;$("exdTimer").textContent=fmt(exLeft);$("exdPlay").textContent="▶ Start"};$("exdEdit").onclick=()=>{clearInterval(exTimer);editExercise(name)};$("exdDone").onclick=()=>{clearInterval(exTimer);addXp(8);checkBadges();closeModal();toast(e.i+" done · +8 XP")}}
+function editExercise(name){const base=[...Object.values(EX)].flat().find(x=>x.n===name);if(!base)return;const cur=getExData(base);openModal(`<h3 class="font-bold text-lg mb-1">${cur.i} ${name}</h3><p class="text-xs muted mb-3">Make it yours. Last set: <b>${base.m}</b> · ${base.t}s. Small, steady increases beat big jumps.</p><div class="login-field"><label>Sets × reps / time label</label><input id="edM" class="input" value="${cur.m}"></div><div class="login-field"><label>Duration per round (seconds)</label><input id="edT" type="number" class="input" value="${cur.t}"></div><div class="grid grid-cols-2 gap-2"><button class="btn btn-ghost" id="edReset">Reset to default</button><button class="btn btn-primary" id="edSave">Save</button></div>`);$("edSave").onclick=()=>{const m=$("edM").value.trim()||base.m,t=Math.max(10,Math.min(600,+$("edT").value||base.t));exOverrides[name]={m,t};save("exOverrides",exOverrides);closeModal();renderWorkouts();toast("Saved · your numbers, your pace")};$("edReset").onclick=()=>{delete exOverrides[name];save("exOverrides",exOverrides);closeModal();renderWorkouts();toast("Reset to default")}}
+let wmList=[],wmIdx=0,wmLeft=0,wmTimer=null,wmRunning=false;
+function startWorkout(cat){wmList=(EX[cat]||EX.hostel).map(e=>({...getExData(e)}));if(!wmList.length)return;workCat=cat;wmIdx=0;loadWm();$("workoutMode").style.display="flex";document.body.style.overflow="hidden"}
+function loadWm(){const e=wmList[wmIdx];$("wmPose").innerHTML=poseSvg(e.n,110);$("wmName").textContent=e.i+" "+e.n;$("wmInstr").textContent=e.d;$("wmMeta").textContent=e.m;$("wmProgress").textContent=`${wmIdx+1}/${wmList.length}`;wmLeft=e.t||30;$("wmTimer").textContent=fmt(wmLeft);wmRunning=false;clearInterval(wmTimer);$("wmPlay").textContent="▶"}
+function fmt(s){return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0")}
+$("wmPlay").onclick=()=>{if(wmRunning){clearInterval(wmTimer);wmRunning=false;$("wmPlay").textContent="▶"}else{wmRunning=true;$("wmPlay").textContent="⏸";wmTimer=setInterval(()=>{if(wmLeft<=0){clearInterval(wmTimer);wmRunning=false;if(navigator.vibrate)navigator.vibrate([100,50,100]);$("wmPlay").textContent="▶";return}wmLeft--;$("wmTimer").textContent=fmt(wmLeft)},1000)}};
+$("wmPrev").onclick=()=>{if(wmIdx>0){wmIdx--;loadWm()}};$("wmNext").onclick=$("wmSkip").onclick=()=>{if(wmIdx<wmList.length-1){wmIdx++;loadWm()}else finishWorkout()};$("wmDone").onclick=()=>{if(wmIdx<wmList.length-1){wmIdx++;loadWm()}else finishWorkout()};$("wmClose").onclick=()=>{if(confirm("Exit?")){clearInterval(wmTimer);$("workoutMode").style.display="none";document.body.style.overflow=""}};
+function finishWorkout(){clearInterval(wmTimer);$("workoutMode").style.display="none";document.body.style.overflow="";const mins=Math.max(3,Math.round(wmList.reduce((a,e)=>a+(e.t||30),0)/60));workoutsToday++;activeMinutes+=mins;totalWorkouts++;save("wt_"+today(),workoutsToday);save("amin_"+today(),activeMinutes);save("totalWorkouts",totalWorkouts);workoutLog.unshift({id:uid(),date:today(),cat:workCat,mins,name:CATS.find(c=>c.id===workCat)?.label||"Workout"});if(workoutLog.length>40)workoutLog.pop();save("workoutLog",workoutLog);addXp(20+mins);updateStreak();checkBadges();toast("Done · +"+(20+mins)+" XP");showPage("home")}
+let tracking=false,lastAccel=null,lastStepT=0,simWalkId=null;
+function handleMotion(e){const a=e.accelerationIncludingGravity||e.acceleration;if(!a)return;const mag=Math.sqrt((a.x||0)**2+(a.y||0)**2+(a.z||0)**2);const now=Date.now();if(lastAccel!=null){if(Math.abs(mag-lastAccel)>1.15&&now-lastStepT>280){lastStepT=now;steps++;save("steps_"+today(),steps);renderActivity();renderHome();updateStreak()}}lastAccel=mag}
+function startSimWalk(){if(simWalkId)return;tracking=true;$("stepStatus").textContent="Demo walk on — steps adding";simWalkId=setInterval(()=>{if(!tracking)return;steps+=2+Math.floor(Math.random()*3);save("steps_"+today(),steps);renderActivity();renderHome();updateStreak()},750)}
+function stopSimWalk(){if(simWalkId){clearInterval(simWalkId);simWalkId=null}}
+async function startSteps(){if(tracking)return;lastAccel=null;lastStepT=0;if(typeof DeviceMotionEvent!=="undefined"){try{if(typeof DeviceMotionEvent.requestPermission==="function"){const r=await DeviceMotionEvent.requestPermission();if(r!=="granted"){$("stepStatus").textContent="Permission denied → demo walk";startSimWalk();return}}window.addEventListener("devicemotion",handleMotion,{passive:true});tracking=true;$("stepStatus").textContent="Tracking — walk with phone";setTimeout(()=>{if(tracking&&lastAccel==null){window.removeEventListener("devicemotion",handleMotion);$("stepStatus").textContent="No sensor → demo walk";startSimWalk()}},3000);return}catch{startSimWalk();return}}startSimWalk()}
+function pauseSteps(){tracking=false;window.removeEventListener("devicemotion",handleMotion);stopSimWalk();$("stepStatus").textContent="Paused"}
+function addWater(ml){water+=ml;save("water_"+today(),water);addXp(3);updateStreak();checkBadges();renderActivity();renderHome();toast("+"+ml+" ml")}
+function openFuel(){const k=load("kcal_"+today(),0);const sel=new Set();const renderSel=()=>{const addK=[...sel].reduce((a,n)=>a+(FUEL.find(f=>f.n===n)?.kcal||0),0);$("fuelConfirm").textContent=sel.size?`Log ${sel.size} item${sel.size>1?"s":""} · +~${addK} kcal`:"Tap items you've had";$("fuelConfirm").disabled=!sel.size};openModal(`<h3 class="font-bold text-lg mb-1">Log fuel</h3><p class="text-xs muted mb-1">Not a diet. No scores, no shame. Tap as many as you like, then confirm once.</p><p class="text-sm font-bold mb-3" style="color:var(--accent)">~${k} kcal logged today <span class="muted font-normal">(rough estimate)</span></p><div class="grid grid-cols-3 gap-2">${FUEL.map(f=>`<button class="fuel-chip" data-f="${f.n}" data-k="${f.kcal}">${f.e}<br>${f.n}<br><span class="muted" style="font-size:.65rem">${f.kcal||0} kcal</span></button>`).join("")}</div><button class="btn btn-primary w-full mt-4" id="fuelConfirm" disabled>Tap items you've had</button>`);$("modalRoot").querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>{const n=b.dataset.f;if(sel.has(n)){sel.delete(n);b.classList.remove("on")}else{sel.add(n);b.classList.add("on")}renderSel()});$("fuelConfirm").onclick=()=>{if(!sel.size)return;const addK=[...sel].reduce((a,n)=>a+(FUEL.find(f=>f.n===n)?.kcal||0),0);save("fuel_"+today(),true);save("kcal_"+today(),load("kcal_"+today(),0)+addK);addXp(5);checkBadges();closeModal();toast(`Logged ${sel.size} item${sel.size>1?"s":""} · ~${addK} kcal 👍`);if($("actKcal"))renderActivity()}}
+function renderActivity(){$("actKcal").textContent=load("kcal_"+today(),0);$("actSteps").textContent=steps.toLocaleString();$("actDist").textContent=(steps*0.00075).toFixed(2);$("actGoal").textContent=stepGoal.toLocaleString();$("stepBar").style.width=Math.min(100,steps/stepGoal*100)+"%";$("waterMl").textContent=water;$("waterGoal").textContent=waterGoal;$("bottleFill").style.height=Math.min(100,water/waterGoal*100)+"%";let h="";for(let i=27;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);const k=d.toISOString().slice(0,10);const sc=(hist[k]&&hist[k].score)||0;h+=`<div class="heat ${sc>=70?"l3":sc>=40?"l2":sc>0?"l1":""}"></div>`}$("heatmap").innerHTML=h}
+function renderProgress(){const days=[];for(let i=6;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);days.push(d.toISOString().slice(0,10))}let wW=0,wM=0,wS=0,aD=0;days.forEach(d=>{const h=hist[d]||{};wW+=h.workouts||0;wM+=h.minutes||0;wS+=h.steps||0;if((h.score||0)>=30)aD++});$("wWorkouts").textContent=wW;$("wMinutes").textContent=wM;$("wSteps").textContent=wS.toLocaleString();$("wConsistency").textContent=Math.round(aD/7*100)+"%";const scores=days.map(d=>(hist[d]&&hist[d].score)||0);const max=Math.max(1,...scores);$("weekChart").innerHTML=scores.map(s=>`<div style="width:28px;border-radius:8px 8px 0 0;background:var(--accent);height:${Math.max(4,s/max*100)}%"></div>`).join("");$("weekLabels").innerHTML=days.map(d=>`<span>${d.slice(8)}</span>`).join("");checkBadges();$("bestStreakN").textContent=Math.max(bestStreak,streak);$("bestStepsN").textContent=Math.max(bestSteps,steps).toLocaleString();$("totalWorkoutsN").textContent=totalWorkouts;const unlockedCount=BADGE_DEFS.filter(b=>badges[b.id]).length;$("badgeCount").textContent=unlockedCount+"/"+BADGE_DEFS.length;$("badgeGrid").innerHTML=BADGE_DEFS.map(b=>`<button type="button" class="badge ${badges[b.id]?"unlocked":""}" data-badge="${b.id}" title="${b.name}" aria-label="${b.name}">${b.icon}</button>`).join("");$("badgeGrid").querySelectorAll("[data-badge]").forEach(el=>el.onclick=()=>openBadgeModal(el.dataset.badge));$("histList").innerHTML=workoutLog.length?workoutLog.slice(0,10).map(w=>`<div class="flex justify-between py-2 border-b" style="border-color:var(--line)"><span>${w.name}</span><span class="muted">${w.date} · ${w.mins}m</span></div>`).join(""):`<p class="muted text-center py-4">Complete a workout to see history.</p>`}
+function openBmiModal(){const h=load("bmiH",170),w=load("bmiW",65);openModal(`<h3 class="font-bold text-lg mb-1">BMI check</h3><p class="text-xs muted mb-3">A rough screening number, not a full picture of health — muscle, frame and age all matter too.</p><div class="login-field"><label>Height (cm)</label><input id="bmiHIn" type="number" class="input" value="${h}"></div><div class="login-field"><label>Weight (kg)</label><input id="bmiWIn" type="number" class="input" value="${w}"></div><button class="btn btn-primary w-full" id="bmiCalc">Calculate</button><div id="bmiResult" class="mt-3"></div>`);$("bmiCalc").onclick=()=>{const hc=+$("bmiHIn").value,wc=+$("bmiWIn").value;if(!hc||!wc||hc<80||hc>250||wc<20||wc>300){toast("Enter a realistic height & weight");return}save("bmiH",hc);save("bmiW",wc);const m=hc/100;const bmi=+(wc/(m*m)).toFixed(1);const cat=bmi<18.5?"Below typical range":bmi<25?"Typical range":bmi<30?"Above typical range":"Well above typical range";$("bmiResult").innerHTML=`<div class="card p-3 text-center"><div class="text-3xl font-black" style="color:var(--accent)">${bmi}</div><div class="text-sm font-semibold mt-1">${cat}</div><p class="text-xs muted mt-2">One data point, not a verdict — how you feel and move matters more than a number.</p></div>`;save("bmiVal",bmi);renderProfile()}}
+window.openBmiModal=openBmiModal;
+function renderProfile(){const n=profile?.name||"Guest";$("profName").textContent=n;$("avatarLetter").textContent=n[0].toUpperCase();$("profMeta").textContent=(profile?.level||"Beginner")+" · Free · Offline";$("examToggle").classList.toggle("on",examMode);const bv=load("bmiVal",null);$("bmiLabel").textContent=bv?bv+" →":"Check →";renderReminders()}
+const REM_META={workout:{label:"Workout reminder",icon:"🏋️"},water:{label:"Hydration reminder",icon:"💧"},move:{label:"Movement break",icon:"🧘"}};
+function renderReminders(){$("notifStatus").textContent=notifStatus==="granted"?"Notifications on":notifStatus==="denied"?"Notifications blocked":"Not enabled yet";$("remList").innerHTML=Object.keys(REM_META).map(k=>{const r=reminders[k];return `<div class="flex items-center justify-between py-2"><div class="flex items-center gap-2"><span class="toggle ${r.on?"on":""}" data-rt="${k}" role="switch" aria-checked="${r.on}" aria-label="${REM_META[k].label}" tabindex="0"></span><span class="text-sm">${REM_META[k].icon} ${REM_META[k].label}</span></div><input type="time" value="${r.time}" data-rtime="${k}" class="input" style="width:110px;padding:6px 8px" ${r.on?"":"disabled"}></div>`}).join("");$("remList").querySelectorAll("[data-rt]").forEach(el=>{const go=()=>toggleReminder(el.dataset.rt);el.onclick=go;el.onkeydown=ev=>{if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();go()}}});$("remList").querySelectorAll("[data-rtime]").forEach(el=>el.onchange=()=>{reminders[el.dataset.rtime].time=el.value;save("reminders",reminders)})}
+function toggleReminder(k){const turningOn=!reminders[k].on;if(turningOn&&typeof Notification!=="undefined"&&Notification.permission==="default"){toast("Requesting notification permission…");Notification.requestPermission().then(p=>{notifStatus=p;reminders[k].on=p==="granted"||true;save("reminders",reminders);renderReminders()});return}reminders[k].on=turningOn;save("reminders",reminders);renderReminders()}
+function checkReminders(){const now=new Date(),hhmm=String(now.getHours()).padStart(2,"0")+":"+String(now.getMinutes()).padStart(2,"0"),t=today();Object.entries(reminders).forEach(([k,r])=>{if(!r.on||r.time!==hhmm||r.lastFired===t)return;r.lastFired=t;save("reminders",reminders);const msg=k==="workout"?"Time for a quick session 💪":k==="water"?"Sip some water 💧":"Stand up and stretch 🧘";if(typeof Notification!=="undefined"&&Notification.permission==="granted")new Notification("Momentum",{body:msg,icon:undefined});else toast(msg)})}
+setInterval(checkReminders,30000);
+$("setImport").onclick=()=>$("importFile").click();
+$("importFile").onchange=(ev)=>{const f=ev.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{const d=JSON.parse(rd.result);const need=["profile","hist","workoutLog","xp","level","streak"];if(!need.every(k=>k in d))throw new Error("bad shape");if(!confirm("This will replace your current data on this device with the backup file. Continue?"))return;Object.entries(d).forEach(([k,v])=>save(k,v));toast("Restored — reloading…");setTimeout(()=>location.reload(),700)}catch(err){alert("That file doesn't look like a valid Momentum backup.")}};rd.readAsText(f)};
+function openBadgeModal(id){const b=BADGE_DEFS.find(x=>x.id===id);if(!b)return;const unlocked=!!badges[id];const [cur,goal]=b.prog?b.prog():[unlocked?1:0,1];const pct=Math.min(100,Math.round((cur/goal)*100));const dateStr=unlocked&&typeof badges[id]==="string"?new Date(badges[id]).toLocaleDateString(undefined,{month:"short",day:"numeric"}):null;openModal(`<div class="text-center"><div class="badge unlocked mx-auto mb-3" style="width:72px;height:72px;aspect-ratio:auto;font-size:2rem;cursor:default">${b.icon}</div><h3 class="font-bold text-lg">${b.name}</h3><p class="text-sm muted mt-1">${b.desc||""}</p>${unlocked?`<p class="text-sm font-bold mt-3" style="color:var(--accent)">✓ Unlocked${dateStr?" · "+dateStr:""}</p>`:`<div class="progress-bar mt-4"><div style="width:${pct}%"></div></div><p class="text-xs muted mt-2">${cur.toLocaleString?cur.toLocaleString():cur} / ${goal.toLocaleString?goal.toLocaleString():goal} · keep going</p>`}<button class="btn btn-soft w-full mt-4" onclick="closeModal()">Close</button></div>`)}
+function openModal(html){$("modalRoot").innerHTML=`<div class="modal-bg" onclick="if(event.target===this)closeModal()"><div class="modal">${html}</div></div>`;document.body.style.overflow="hidden"}
+function closeModal(){clearInterval(exTimer);$("modalRoot").innerHTML="";document.body.style.overflow=""}
+window.closeModal=closeModal;window.addWater=addWater;window.startWorkout=startWorkout;window.startSteps=startSteps;window.showPage=showPage;window.openFuel=openFuel;
+$("ctaStart").onclick=$("ctaBottom").onclick=$("landLogin").onclick=goLogin;
+$("ctaWhy").onclick=()=>$("secWhy").scrollIntoView({behavior:"smooth"});
+$("logoHome").onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+$("loginLogoBtn").onclick=()=>showScreen("screen-landing");
+$("landTheme").onclick=()=>{darkPref=darkPref==="dark"?"light":"dark";save("theme",darkPref);applyTheme()};
+$("loginBack").onclick=()=>showScreen("screen-landing");
+$("loginGoals").onclick=e=>{const b=e.target.closest("[data-goal]");if(!b)return;loginGoal=b.dataset.goal;$("loginGoals").querySelectorAll("[data-goal]").forEach(c=>c.classList.toggle("on",c===b))};
+$("loginGo").onclick=()=>enterApp(false);$("loginGuest").onclick=()=>enterApp(true);
+document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>showPage(b.dataset.page));
+$("appLogo").onclick=()=>showPage("home");
+$("qaWorkout").onclick=()=>showPage("workouts");$("qaWalk").onclick=()=>{showPage("activity");startSteps()};$("qaFuel").onclick=openFuel;$("qaStudent").onclick=()=>{workCat="student";showPage("workouts");renderWorkouts()};
+$("stepStart").onclick=startSteps;$("stepPause").onclick=pauseSteps;$("stepReset").onclick=()=>{steps=0;save("steps_"+today(),0);renderActivity();renderHome()};$("manualSteps").onclick=()=>{steps+=10;save("steps_"+today(),steps);renderActivity();renderHome();updateStreak()};
+document.querySelectorAll("[data-ml]").forEach(b=>b.onclick=()=>{if(b.dataset.ml==="custom"){const v=parseInt(prompt("ml?","200"),10);if(v>0&&v<2000)addWater(v)}else addWater(+b.dataset.ml)});
+$("editStepGoal").onclick=()=>{const v=parseInt(prompt("Step goal",stepGoal),10);if(v>=1000&&v<=30000){stepGoal=v;save("stepGoal",v);renderActivity()}};
+$("energyBtns").onclick=e=>{const b=e.target.closest("[data-e]");if(!b)return;energy=b.dataset.e;save("energy_"+today(),energy);renderHome();toast("Energy: "+energy)};
+$("claimComeback").onclick=()=>{if(load("comeback_claimed_"+today(),false))return;save("comeback_claimed_"+today(),true);badges._comeback=true;save("badges",badges);comebackPending=false;addXp(25);checkBadges();renderHome();toast("Comeback boost +25 XP 🔄")};
+$("fab").onclick=()=>openModal(`<h3 class="font-bold mb-3">Quick</h3><div class="grid grid-cols-2 gap-2"><button class="btn btn-soft" onclick="addWater(250);closeModal()">💧 Water</button><button class="btn btn-soft" onclick="openFuel()">🍽️ Fuel</button><button class="btn btn-primary" onclick="closeModal();showPage('workouts')">▶ Workout</button><button class="btn btn-cyan" onclick="closeModal();showPage('activity');startSteps()">🚶 Walk</button></div>`);
+$("homeSettings").onclick=()=>showPage("profile");
+$("openHabits").onclick=()=>openModal(`<h3 class="font-bold mb-3">Habits</h3>${habits.map(h=>{const done=!!doneHabitsToday[h.id];return `<label class="flex items-center gap-3 p-2 card mb-2"><input type="checkbox" ${done?"checked":""} onchange="toggleHabit('${h.id}',this.checked);closeModal();renderHome()" style="accent-color:var(--accent)"><span>${h.name}</span></label>`}).join("")}`);
+$("setTheme").onclick=()=>{darkPref=darkPref==="dark"?"light":"dark";save("theme",darkPref);applyTheme();renderProfile()};
+$("setBmi").onclick=openBmiModal;
+$("examToggle").onclick=()=>{examMode=!examMode;save("examMode",examMode);$("examToggle").classList.toggle("on",examMode);renderHome();toast(examMode?"Exam mode on":"Exam mode off")};
+$("setExport").onclick=()=>{const data={profile,hist,workoutLog,xp,level,streak,graceLeft,badges};const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:"application/json"}));a.download="momentum-data.json";a.click()};
+$("setReset").onclick=()=>{if(!confirm("Reset today's activity?"))return;steps=0;water=0;workoutsToday=0;activeMinutes=0;doneHabitsToday={};save("steps_"+today(),0);save("water_"+today(),0);save("wt_"+today(),0);save("amin_"+today(),0);save("habits_"+today(),{});renderHome();renderActivity();toast("Today reset")};
+applyTheme();updateStreak();showScreen("screen-landing");
+if(load("onboarded",false)&&profile){const hero=$("ctaStart")?.parentElement;if(hero){const b=document.createElement("button");b.className="btn btn-soft text-base";b.textContent="Continue as "+(profile.name||"you")+" →";b.onclick=()=>{showScreen("screen-app");showPage("home")};hero.appendChild(b)}}
+function syncOnline(){const p=$("offlinePill");if(p)p.textContent=navigator.onLine?"● Online (data local)":"● Offline"}
+window.addEventListener("online",syncOnline);window.addEventListener("offline",syncOnline);syncOnline();
+</script>
+</body>
+</html>
